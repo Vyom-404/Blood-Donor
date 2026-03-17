@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { DonorCard, Filter, SearchBar, LoadingSpinner } from './components';
+import { DonorCard, Filter, SearchBar, LoadingSpinner, ThemeToggle } from './components';
 import './App.css';
 
 function App() {
@@ -9,6 +9,20 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [requestedDonors, setRequestedDonors] = useState({});
   const [sortBy, setSortBy] = useState('availability');
+  const [theme, setTheme] = useState(() => {
+    // Load theme from localStorage or default to 'dark'
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const bloodGroups = ['A+', 'B+', 'O+', 'AB+', 'A-', 'B-', 'O-', 'AB-'];
 
@@ -76,6 +90,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <ThemeToggle theme={theme} onToggle={toggleTheme} />
       <header className="app-header">
         <h1> Blood Donor Finder</h1>
         <p>Find and request blood donors quickly and efficiently</p>

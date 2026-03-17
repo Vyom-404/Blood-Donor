@@ -1,16 +1,52 @@
 :root {
+  --bg-primary: #2a2a2a;
+  --bg-secondary: #3a3a3a;
+  --bg-tertiary: #4a4a4a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #999;
+  --border-color: #555;
+  --accent-red: #ff5252;
+  --accent-red-dark: #e57373;
+  --accent-gold: #ffd700;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --success-bg: #e8f5e9;
+  --success-text: #2e7d32;
+  --error-bg: #ffebee;
+  --error-text: #c62828;
+
   font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: dark;
-  color: #ffffff;
-  background-color: #2a2a2a;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Smooth theme transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f9fa;
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --text-muted: #757575;
+  --border-color: #e0e0e0;
+  --accent-red: #c62828;
+  --accent-red-dark: #8e0000;
+  --accent-gold: #ff9800;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --success-bg: #e8f5e9;
+  --success-text: #2e7d32;
+  --error-bg: #ffebee;
+  --error-text: #c62828;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +65,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -47,15 +84,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #ff5252;
-  color: #ffffff;
+  background-color: var(--accent-red);
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #e57373;
-  border-color: #ffd700;
+  background-color: var(--accent-red-dark);
+  border-color: var(--accent-gold);
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
