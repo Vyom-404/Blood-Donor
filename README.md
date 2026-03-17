@@ -181,8 +181,3 @@ npm run preview
 - 🔄 Blood type compatibility checker
 - 🔄 Donor verification status badges
 - 🔄 Real-time updates with WebSocket simulation
-
-## License
-
-MIT
-
