@@ -10,6 +10,7 @@ export const DonorCard = ({ donor, onRequest, isRequested }) => {
 
       <div className="donor-info">
         <p><strong>City:</strong> {donor.address?.city || 'Unknown'}</p>
+        <p><strong>Email:</strong> {donor.email}</p>
         <p><strong>Phone:</strong> {donor.phone}</p>
         <p>
           <strong>Availability:</strong>{' '}

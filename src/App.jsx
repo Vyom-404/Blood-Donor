@@ -21,6 +21,7 @@ function App() {
         const mappedDonors = users.map((user, index) => ({
           id: user.id,
           name: user.name,
+          email: user.email,
           phone: user.phone,
           address: user.address,
           bloodGroup: bloodGroups[index % bloodGroups.length],
